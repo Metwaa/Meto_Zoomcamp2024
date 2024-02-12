@@ -1,5 +1,5 @@
-# Welcome to Module 3 Home Work
-Basicly I uploaded green taxi data manually in the below gcp bucket path
+# Welcome to DE Zoomcamp 2024 - Module 3 - Home Work
+Basicly I uploaded green taxi data manually in the below gcs bucket path
 - mage-zoomcamp-meto/nyc_greentaxidata_2022/
 - then started the homework answers as the following:
 
@@ -14,28 +14,33 @@ OPTIONS (
 CREATE OR REPLACE TABLE airy-cortex-297320.ny_taxi.green_tripdata_2022_non_partitoned AS
 SELECT * FROM airy-cortex-297320.ny_taxi.external_green_tripdata_2022;
 
-# Answer of question 1 in module 3
+# Answer of question 1
 SELECT count(*) TotalRecords FROM airy-cortex-297320.ny_taxi.external_green_tripdata_2022;
 
-# Answer of question 2 in module 3
+
+# Answer of question 2
 SELECT DISTINCT(PULocationID)
 FROM airy-cortex-297320.ny_taxi.external_green_tripdata_2022;
+
 
 SELECT DISTINCT(PULocationID)
 FROM airy-cortex-297320.ny_taxi.green_tripdata_2022_non_partitoned;
 
-# Answer of question 3 in module 3
+
+# Answer of question 3
 SELECT count(*) TotalRecords 
 FROM airy-cortex-297320.ny_taxi.external_green_tripdata_2022
 WHERE fare_amount =0;
 
-# Answer of question 4 in module 3
+
+# Answer of question 4
 CREATE OR REPLACE TABLE airy-cortex-297320.ny_taxi.green_tripdata_2022_partitoned_clustered
 PARTITION BY DATE(lpep_pickup_datetime)
 CLUSTER BY PULocationID AS
 SELECT * FROM airy-cortex-297320.ny_taxi.external_green_tripdata_2022;
 
-# Answer of question 5 in module 3
+
+# Answer of question 5
 SELECT DISTINCT(PULocationID)
 FROM airy-cortex-297320.ny_taxi.green_tripdata_2022_non_partitoned
 WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30';
