@@ -48,3 +48,12 @@ WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30';
 SELECT DISTINCT(PULocationID)
 FROM airy-cortex-297320.ny_taxi.green_tripdata_2022_partitoned_clustered
 WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30';
+
+
+# Answer of question 8
+SELECT count(*) FROM airy-cortex-297320.ny_taxi.green_tripdata_2022_partitoned_clustered;
+
+This query will process 0 B when run due to partitioning & clustering.
+
+# Big Thanks
+No words can describe my gratitude, happiness, appreciation for what presenting for us during this awesome intensive zoomcamp 
