@@ -1,14 +1,13 @@
 # Welcome to DE Zoomcamp 2024 - Module 3 - Home Work
-Basicly I uploaded green taxi data manually in the below gcs bucket path
-- mage-zoomcamp-meto/nyc_greentaxidata_2022/
+Basicly I uploaded green taxi data using Mage orchestrator
+- mage-zoomcamp-meto/greentaxi_data_of_2022
 - then started the homework answers as the following:
 
-# Creating external table referring to gcs path
+# Creating an external table from gs path
 CREATE OR REPLACE EXTERNAL TABLE `airy-cortex-297320.ny_taxi.external_green_tripdata_2022`
 OPTIONS (
   format = 'PARQUET',
-  uris = ['gs://mage-zoomcamp-meto/nyc_greentaxidata_2022/green_tripdata_2022-*.parquet']
-);
+  uris = ['gs://mage-zoomcamp-meto/greentaxi_data_of_2022/*.parquet']);
 
 # Create a BQ table from external table
 CREATE OR REPLACE TABLE airy-cortex-297320.ny_taxi.green_tripdata_2022_non_partitoned AS
